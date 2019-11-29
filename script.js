@@ -1,18 +1,20 @@
 
 //display current date on page
-var date = new Date(); 
-var dateOnPage= document.getElementById("current-date");
+$dateOnPage = $("#current-date");
+$dateOnPage.text(moment().format('dddd    DD/ MM/ YYYY'));
 
-dateOnPage.textContent =date.getDate()+"/"+date.getMonth()+"/"+date.getFullYear();
+//var date = new Date(); 
+//var dateOnPage= document.getElementById("current-date");
+
+//dateOnPage.textContent =date.getDate()+"/"+date.getMonth()+"/"+date.getFullYear();
 
  $(document).ready(function() {
      var $time;
      var $text;
-     var $name = $("#name")
-   
+       
      //save at local storage
     $(".save-button").click(function() {
-        localStorage.setItem("name",$name.val())
+        
       $time =  $(this).parent().attr("id"); 
       if ($time === "5PM") {
           $text = $("#task-17");
@@ -45,9 +47,9 @@ dateOnPage.textContent =date.getDate()+"/"+date.getMonth()+"/"+date.getFullYear(
      
     })
 
+
 // getting data from local storage and displaying on textarea
    
-   $("#name").val(localStorage.getItem("name"));
    $("#task-9").val(localStorage.getItem("9AM"));
    $("#task-10").val(localStorage.getItem("10AM"));
    $("#task-11").val(localStorage.getItem("11AM"));
@@ -57,5 +59,5 @@ dateOnPage.textContent =date.getDate()+"/"+date.getMonth()+"/"+date.getFullYear(
    $("#task-15").val(localStorage.getItem("3PM"));
    $("#task-16").val(localStorage.getItem("4PM"));
    $("#task-17").val(localStorage.getItem("5PM"));  
- })
- 
+
+})
