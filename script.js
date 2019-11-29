@@ -6,38 +6,45 @@ var dateOnPage= document.getElementById("current-date");
 dateOnPage.textContent =date.getDate()+"/"+date.getMonth()+"/"+date.getFullYear();
 
  $(document).ready(function() {
+     var $time;
+     var $text;
      //save at local storage
     $(".save-button").click(function() {
      
-      var $time =  $(this).parent().attr("id"); 
+      $time =  $(this).parent().attr("id"); 
       if ($time === "5PM") {
-         var $text = $("#task-17");
+          $text = $("#task-17");
       }
       else if ($time === "4PM") {
-        var $text = $("#task-16");
+         $text = $("#task-16");
       }
       else if ($time === "3PM") {
-        var $text = $("#task-15");
+         $text = $("#task-15");
       }
       else if ($time === "2PM") {
-        var $text = $("#task-14");
+         $text = $("#task-14");
       }
       else if ($time === "1PM") {
-        var $text = $("#task-13");
+         $text = $("#task-13");
       }
       else if ($time === "12 Noon") {
-        var $text = $("#task-12");
+         $text = $("#task-12");
       }
       else if ($time === "11AM") {
-        var $text = $("#task-11");
+         $text = $("#task-11");
       }
       else if ($time === "10AM") {
-        var $text = $("#task-10");
+         $text = $("#task-10");
       }
       else if ($time === "9AM") {
-        var $text = $("#task-9");
+         $text = $("#task-9");
       }
     localStorage.setItem($time, $text.val());
      
     })
+
+        
+    var $savedData = localStorage.getItem("9AM")
+    console.log($savedData);
  })
+ 
