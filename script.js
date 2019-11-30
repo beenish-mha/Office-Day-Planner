@@ -1,16 +1,18 @@
+var $time;
+var $text;
+$currentHour = parseInt(moment().format("HH"));
+console.log($currentHour);
 
 //display current date on page
 $dateOnPage = $("#current-date");
 $dateOnPage.text(moment().format('dddd    DD/ MM/ YYYY'));
-$currentHour = parseInt(moment().format("HH"));
-console.log($currentHour);
+
 
 //get the id of each row to compare with current time
 var $timeArray = [];
 $("#main-section").find("tr").each(function(){
     $timeArray.push($(this).attr("id")); 
    });
-//console.log($timeArray);
 var $numb;
 
 //change the color of textcontent according to the current time
@@ -18,20 +20,20 @@ for( var i = 0; i< $timeArray.length; i++){
    $numb = parseInt($timeArray[i]);
   if ($currentHour > $numb){
       console.log("past ");
+      $("#task-"+$numb).css("background-color","lightgrey");
   } 
   else if ($currentHour < $numb) {
       console.log("future");
+      $("#task-"+$numb).css("background-color","lightblue");
    }
   else if ($currentHour === $numb) {
       console.log("present");
+      $("#task-"+$numb).css("background-color","lightgreen");
    }
-
 }
+
+
  $(document).ready(function() {
-     var $time;
-     var $text;
-
-
      //save at local storage
     $(".save-button").click(function() {
       $time =  $(this).parent().attr("id"); 
